@@ -19,6 +19,7 @@ inputTamanho.addEventListener('keydown', function (event) {
 function fazTudo() {
   base = parseInt(inputTamanho.value);
   if (base < 6 || base > 70) {
+    inputTamanho.value = '';
     alert('Por favor um valor entre 6 e 70!');
   } else {
     removeLinha();
@@ -29,6 +30,7 @@ function fazTudo() {
       direita = altura;
       criaLinha(altura);
       let linhas = document.querySelectorAll('.linha');
+      inputTamanho.value = '';
       prencherTriangulo(linhas);
     } else {
       base += 1;
@@ -37,6 +39,7 @@ function fazTudo() {
       direita = altura;
       criaLinha(altura);
       let linhas = document.querySelectorAll('.linha');
+      inputTamanho.value = '';
       prencherTriangulo(linhas);
     }
   }
