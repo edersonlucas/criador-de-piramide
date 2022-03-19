@@ -9,26 +9,17 @@
   </head>
   <body>
     <header>
-      <h1>Piramide</h1>
+      <h1>Criador Piramide</h1>
     </header>
     <main>
-      <p>Visitas:</p>
-      <p>Qual tamanho da piramide ?</p>
-      <input id="tamanhoDaPiramide" type="number" />
-      <button id="botaoCriar">Criar</button>
+      <div id="controlador">
+        <p>Qual tamanho da entre 6 e 70 ?</p>
+        <input id="tamanhoDaPiramide" type="number" />
+        <button id="botaoCriar">Criar</button>
+      </div>
+      <p id="visitas">Visitas:</p>
       <div id="container-piramide">
-        <div id="piramide">
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-          <div class="linha"></div>
-        </div>
+        <div id="piramide"></div>
       </div>
     </main>
     <script src="script.js"></script>
