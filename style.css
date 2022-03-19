@@ -49,19 +49,19 @@ header {
 
 .linha {
   width: 100%;
-  height: 20px;
+  height: 2vh;
 }
 
 .bloquinho {
-  width: 20px;
-  height: 20px;
+  width: 2vw;
+  height: 2vh;
   display: inline-block;
   background: #2fc18c;
 }
 
 .bloquinho-vazio {
-  width: 20px;
-  height: 20px;
+  width: 2vw;
+  height: 2vh;
   display: inline-block;
 }
 

@@ -18,30 +18,22 @@ inputTamanho.addEventListener('keydown', function (event) {
 
 function fazTudo() {
   base = parseInt(inputTamanho.value);
-  if (base < 6 || base > 70) {
+  if (base < 3 || base > 39) {
     inputTamanho.value = '';
-    alert('Por favor um valor entre 6 e 70!');
+    alert('Por favor um valor entre 3 e 39!');
+  } else if (base % 2 === 0) {
+    inputTamanho.value = '';
+    alert('Por favor digite um número impar');
   } else {
     removeLinha();
-    if (base % 2 === 0) {
-      base += 2;
-      altura = base / 2;
-      esquerda = altura;
-      direita = altura;
-      criaLinha(altura);
-      let linhas = document.querySelectorAll('.linha');
-      inputTamanho.value = '';
-      prencherTriangulo(linhas);
-    } else {
-      base += 1;
-      altura = base / 2;
-      esquerda = altura;
-      direita = altura;
-      criaLinha(altura);
-      let linhas = document.querySelectorAll('.linha');
-      inputTamanho.value = '';
-      prencherTriangulo(linhas);
-    }
+    base += 1;
+    altura = base / 2;
+    esquerda = altura;
+    direita = altura;
+    criaLinha(altura);
+    let linhas = document.querySelectorAll('.linha');
+    inputTamanho.value = '';
+    prencherTriangulo(linhas);
   }
 }
 
@@ -100,7 +92,6 @@ window.onload = function () {
     localStorage.setItem('visita', JSON.stringify(visita));
     let numero = JSON.parse(receber).visita;
     numero += 1;
-    console.log('aqui');
     visitas.innerText = `Visitas: ${numero}`;
   }
 };
