@@ -1,4 +1,4 @@
-// criaLinha(10);
+// Variaveis
 let visitas = document.querySelector('#visitas');
 let inputTamanho = document.querySelector('#tamanhoDaPiramide');
 let piramideDiv = document.querySelector('#piramide');
@@ -7,15 +7,18 @@ let altura = 0;
 let esquerda = 0;
 let direita = 0;
 let botaoCriar = document.querySelector('#botaoCriar');
-// let linhas = document.querySelectorAll('.linha');
-botaoCriar.addEventListener('click', fazTudo);
 
+// Eventos
+// Click no botão
+botaoCriar.addEventListener('click', fazTudo);
+// Enter
 inputTamanho.addEventListener('keydown', function (event) {
   if (event.key == 'Enter') {
     fazTudo();
   }
 });
 
+// Funcao que faz todo o trabalho
 function fazTudo() {
   base = parseInt(inputTamanho.value);
   if (base < 3 || base > 39) {
@@ -31,9 +34,8 @@ function fazTudo() {
     esquerda = altura;
     direita = altura;
     criaLinha(altura);
-    let linhas = document.querySelectorAll('.linha');
     inputTamanho.value = '';
-    prencherTriangulo(linhas);
+    prencherTriangulo(document.querySelectorAll('.linha'));
   }
 }
 
@@ -49,13 +51,11 @@ function criaLinha(quantas) {
   }
 }
 
-// prencherTriangulo(linhas);
-
 function prencherTriangulo(linhas) {
-  for (let i = 0; i <= linhas.length; i += 1) {
+  for (let i = 0; i < linhas.length; i += 1) {
     preencheLinha(linhas[i]);
-    direita += 1;
     esquerda -= 1;
+    direita += 1;
   }
 }
 
@@ -66,10 +66,9 @@ function criarBloco(classe) {
 }
 
 function preencheLinha(linhasIndex) {
-  for (let a = 1; a <= base; a += 1) {
+  for (let a = 1; a < base; a += 1) {
     if (a >= esquerda && a <= direita) {
-      let bloco = criarBloco('bloquinho');
-      linhasIndex.appendChild(bloco);
+      linhasIndex.appendChild(criarBloco('bloquinho'));
     } else {
       linhasIndex.appendChild(criarBloco('bloquinho-vazio'));
     }
@@ -79,19 +78,14 @@ function preencheLinha(linhasIndex) {
 // contador de visitas
 window.onload = function () {
   if (localStorage.getItem('visita') === null) {
-    let visita = { visita: 1 };
-    localStorage.setItem('visita', JSON.stringify(visita));
+    localStorage.setItem('visita', JSON.stringify({ visita: 1 }));
     let receber = localStorage.getItem('visita');
     let numero = JSON.parse(receber).visita;
     visitas.innerText = `Visita: ${numero}`;
   } else {
     let receber = localStorage.getItem('visita');
-    let valor = JSON.parse(receber).visita;
-    valor += 1;
-    visita = { visita: valor };
-    localStorage.setItem('visita', JSON.stringify(visita));
-    let numero = JSON.parse(receber).visita;
-    numero += 1;
+    let numero = JSON.parse(receber).visita + 1;
+    localStorage.setItem('visita', JSON.stringify({ visita: numero }));
     visitas.innerText = `Visitas: ${numero}`;
   }
 };
